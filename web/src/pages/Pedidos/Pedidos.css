@@ -1,0 +1,231 @@
+.pedidos-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--vf-bg);
+    padding-bottom: 90px;
+  }
+  
+  .pedidos-content {
+    padding: 20px;
+    max-width: 800px; /* Mantém a tela contida mesmo em monitores grandes */
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .page-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--vf-text-main);
+    margin-bottom: 16px;
+  }
+  
+  /* Barra de Pesquisa */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--vf-card-bg);
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--vf-border);
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  
+  .search-bar input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    color: var(--vf-text-main);
+  }
+  
+  .search-icon { color: var(--vf-text-muted); }
+  
+  /* Filtros Rápidos (Chips) */
+  .filtros-rapidos {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  
+  .chip-filtro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 24px;
+    border: 1px solid var(--vf-border);
+    background: var(--vf-card-bg);
+    color: var(--vf-text-muted);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  
+  .chip-filtro:active { transform: scale(0.96); }
+  
+  /* Estilos de Status nos Chips */
+  .chip-filtro.ativo {
+    border-color: var(--vf-primary);
+    background: var(--vf-primary);
+    color: white;
+  }
+  
+  .chip-filtro.pendente.ativo {
+    border-color: var(--vf-orange);
+    background: var(--vf-orange);
+  }
+  
+  /* Lista de Pedidos */
+  .pedidos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .pedido-card {
+    background: var(--vf-card-bg);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border: 1px solid var(--vf-border);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-left 0.2s;
+  }
+  
+  .card-pendente { border-left: 4px solid var(--vf-orange); }
+  .card-concluido { border-left: 4px solid var(--vf-primary); opacity: 0.85; }
+  
+  .pedido-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px dashed var(--vf-border);
+    padding-bottom: 12px;
+  }
+  
+  .pedido-data-cliente {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .pedido-data {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--vf-text-muted);
+  }
+  
+  .pedido-cliente {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--vf-text-main);
+    font-size: 16px;
+  }
+  
+  .pedido-total {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--vf-primary);
+    background: var(--vf-primary-light);
+    padding: 6px 12px;
+    border-radius: 12px;
+  }
+  
+  /* Resumo de itens */
+  .pedido-resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .resumo-texto {
+    font-size: 14px;
+    color: var(--vf-text-muted);
+  }
+  
+  .btn-ver-detalhes {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--vf-primary);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+  
+  .btn-ver-detalhes:hover { background: var(--vf-bg); }
+  
+  /* Ações e Badges */
+  .pedido-acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+  
+  .status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  
+  .status-laranja {
+    background: #fef3c7;
+    color: #d97706;
+  }
+  
+  .status-verde {
+    background: var(--vf-primary-light);
+    color: var(--vf-primary);
+  }
+  
+  .btn-concluir {
+    background: var(--vf-primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(10, 123, 108, 0.2);
+    transition: transform 0.1s;
+  }
+  
+  .btn-concluir:active { transform: scale(0.95); }
+  
+  /* Estado Vazio */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    color: var(--vf-text-muted);
+    text-align: center;
+    font-weight: 500;
+    gap: 12px;
+  }
+  
+  .empty-icon { color: #d1d5db; }
