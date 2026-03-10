@@ -225,7 +225,7 @@ export default function Dashboard() {
               onClick={() => navigate("/caixa")}
             >
               <ShoppingCart size={34} className="action-icon text-white" />
-              <span className="action-title text-white">Nova Venda</span>
+              <span className="action-title text-green">Nova Venda</span>
             </button>
             <button
               className="action-card"
