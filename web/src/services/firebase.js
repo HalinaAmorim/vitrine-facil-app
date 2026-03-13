@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -21,24 +27,27 @@ export const storage = getStorage(app);
 export const firebaseService = {
   async getLojas() {
     try {
-      const snap = await getDocs(collection(db, "usuarios"));
+      const q = query(collection(db, "usuarios"), where("role", "==", "lojista"));
+      const snap = await getDocs(q);
 
-      return snap.docs
-        .map((docItem) => {
-          const data = docItem.data() || {};
+      return snap.docs.map((docItem) => {
+        const data = docItem.data() || {};
 
-          return {
-            id: docItem.id,
-            nome: data.nome || "Lojista",
-            nomeLoja: data.nomeLoja || data.nome || "Loja sem nome",
-            segmento: data.segmento || "Outros",
-            cidade: data.cidade || data.bairro || "Sua cidade",
-            imagemCapa: data.imagemCapa || data.imagem || "",
-            role: data.role || "lojista",
-          };
-        })
-        .filter((loja) => loja.role === "lojista");
+        return {
+          id: docItem.id,
+          nome: data.nome || "Lojista",
+          nomeLoja: data.nomeLoja || data.nome || "Loja sem nome",
+          segmento: data.segmento || "Outros",
+          cidade: data.cidade || data.bairro || "Sua cidade",
+          imagemCapa: data.imagemCapa || data.imagem || "",
+          role: data.role || "lojista",
+        };
+      });
     } catch (error) {
+      if (error?.code === "permission-denied") {
+        return [];
+      }
+
       console.error("Erro ao buscar lojas no Firebase:", error);
       return [];
     }
