@@ -68,6 +68,13 @@ export default function Dashboard() {
   const maiorVenda = Math.max(...ultimos5Dias.map((d) => d.total), 0);
   const temVendasNaSemana = maiorVenda > 0;
 
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleLogout = () => {
+    // Implementar lógica de logout aqui
+    navigate("/login");
+  };
+
   return (
     <div className="dashboard-layout">
       <header className="top-header">
@@ -81,7 +88,49 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="header-actions">
-          <div className="user-avatar">{userInitials}</div>
+          <div 
+            className="user-avatar"
+            onClick={() => setShowMenu(!showMenu)}
+            style={{ cursor: "pointer", position: "relative" }}
+          >
+            {userInitials}
+            {showMenu && (
+              <div
+                className="context-menu"
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  right: 0,
+                  backgroundColor: "white",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "6px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                  zIndex: 1000,
+                  minWidth: "150px",
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    padding: "12px 16px",
+                    textAlign: "left",
+                    border: "none",
+                    backgroundColor: "transparent",
+                    cursor: "pointer",
+                    fontSize: "14px",
+                    color: "#374151",
+                  }}
+                  onMouseEnter={(e) => (e.target.style.backgroundColor = "#f3f4f6")}
+                  onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}
+                >
+                  Sair
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
