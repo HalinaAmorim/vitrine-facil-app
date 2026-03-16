@@ -629,7 +629,7 @@ export default function Estoque() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#06b6d4",
+          background: "#0a7b6c",
           color: "#ffffff",
           border: "none",
           boxShadow: "0 6px 18px rgba(0,0,0,0.18)",
