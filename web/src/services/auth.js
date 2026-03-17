@@ -122,4 +122,35 @@ export const authService = {
 
     return { user, token };
   },
+
+  async updateProfile({ nome, cpf, segmento }) {
+    try {
+      const currentUser = auth.currentUser;
+      if (!currentUser) throw new Error("Usuário não autenticado.");
+
+      const updates = {};
+      if (nome && nome.trim()) {
+        updates.displayName = nome.trim();
+      }
+
+      if (Object.keys(updates).length > 0) {
+        await updateProfile(currentUser, updates);
+      }
+
+      const usuarioRef = doc(db, "usuarios", currentUser.uid);
+      await setDoc(
+        usuarioRef,
+        {
+          nome: nome?.trim() || undefined,
+          cpf: cpf ? String(cpf).replace(/\D/g, "") : undefined,
+          segmento: segmento?.trim() || undefined,
+        },
+        { merge: true }
+      );
+
+      return await montarUsuarioSeguro(currentUser);
+    } catch (error) {
+      throw new Error(traduzirErroFirebase(error));
+    }
+  },
 };

@@ -538,6 +538,25 @@ export default function Estoque() {
               >
                 <button
                   type="button"
+                  onClick={() => navigate("/profile")}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    padding: "12px 16px",
+                    textAlign: "left",
+                    border: "none",
+                    backgroundColor: "transparent",
+                    cursor: "pointer",
+                    fontSize: "14px",
+                    color: "#374151",
+                  }}
+                  onMouseEnter={(e) => (e.target.style.backgroundColor = "#f3f4f6")}
+                  onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}
+                >
+                  Editar perfil
+                </button>
+                <button
+                  type="button"
                   onClick={handleLogout}
                   style={{
                     display: "block",

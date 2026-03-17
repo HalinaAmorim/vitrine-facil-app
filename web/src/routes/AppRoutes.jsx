@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext.jsx";
 import Home from "../pages/Auth/Home.jsx";
 import Register from "../pages/Auth/Register.jsx";
 import HomeWelcome from "../pages/Auth/HomeWelcome.jsx";
+import EditProfile from "../pages/Auth/EditProfile.jsx";
 import Products from "../pages/Products/Products.jsx";
 import Dashboard from "../pages/Dashboard/Dashboard.jsx";
 import Estoque from "../pages/Estoque/Estoque.jsx";
@@ -82,6 +83,7 @@ export default function AppRoutes() {
       {/* ROTAS INTERNAS PROTEGIDAS */}
       <Route path="/home" element={<ProtectedRoute><HomeWelcome /></ProtectedRoute>} />
       <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
+      <Route path="/profile" element={<ProtectedRoute><HomeWelcome editMode /></ProtectedRoute>} />
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
       <Route path="/estoque" element={<ProtectedRoute><Estoque /></ProtectedRoute>} />
       <Route path="/caixa" element={<ProtectedRoute><Caixa /></ProtectedRoute>} />

@@ -25,7 +25,7 @@ function saveStoreProfile(userId, data) {
   localStorage.setItem(STORE_KEY, JSON.stringify(all));
 }
 
-export default function HomeWelcome() {
+export default function HomeWelcome({ editMode = false }) {
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -117,8 +117,11 @@ export default function HomeWelcome() {
 
     saveStoreProfile(userId, profile);
 
-    // vai para cadastro de produtos
-    navigate("/products");
+    if (editMode) {
+      navigate("/dashboard");
+    } else {
+      navigate("/products");
+    }
   }
 
   const uploadId = "upload-loja-foto";
@@ -137,8 +140,8 @@ export default function HomeWelcome() {
 
       <div className="auth-center">
         <div className="auth-card">
-          <h1 className="auth-title">Continue fazendo seu perfil</h1>
-          <p className="auth-subtitle">Essas informações vão aparecer para os clientes.</p>
+          <h1 className="auth-title">{editMode ? "Editar perfil da loja" : "Continue fazendo seu perfil"}</h1>
+          <p className="auth-subtitle">{editMode ? "Atualize suas informações de loja" : "Essas informações vão aparecer para os clientes."}</p>
 
           {error && <div className="auth-error">{error}</div>}
 
@@ -256,14 +259,14 @@ export default function HomeWelcome() {
             )}
 
             <button className="auth-button" type="submit">
-              Salvar e continuar
+              {editMode ? "Salvar perfil" : "Salvar e continuar"}
             </button>
 
             <p className="auth-footer">
-              Quer voltar?{" "}
+              {editMode ? "Para alterar de novo, acesse o menu no canto superior direito." : "Quer voltar?"}{" "}
               <button
                 type="button"
-                onClick={() => navigate("/")}
+                onClick={() => navigate(editMode ? "/dashboard" : "/")}
                 style={{
                   background: "transparent",
                   border: 0,
@@ -273,7 +276,7 @@ export default function HomeWelcome() {
                   fontWeight: 900,
                 }}
               >
-                Ir para o início
+                {editMode ? "Voltar para o painel" : "Ir para o início"}
               </button>
             </p>
           </form>
