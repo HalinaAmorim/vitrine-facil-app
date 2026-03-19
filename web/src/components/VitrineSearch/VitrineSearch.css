@@ -1,0 +1,88 @@
+.search-container {
+    position: relative;
+    z-index: 20;
+    max-width: 1024px;
+    margin: -64px auto 0;
+    background: var(--vf-card-bg);
+    padding: 24px;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--vf-border);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--vf-text-muted);
+  }
+  
+  .search-box input {
+    width: 100%;
+    background: var(--vf-bg); 
+    border: 1px solid var(--vf-border);
+    border-radius: 16px;
+    padding: 16px 16px 16px 48px;
+    font-size: 16px;
+    color: var(--vf-text-main);
+    transition: all 0.3s;
+    outline: none;
+  }
+  
+  .search-box input:focus {
+    background: white;
+    border-color: var(--vf-primary); 
+    box-shadow: 0 0 0 2px rgba(10, 123, 108, 0.2);
+  }
+  
+  .chips-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  
+  .chip-icon {
+    color: var(--vf-text-muted);
+    flex-shrink: 0;
+  }
+  
+  .segmento-chip {
+    background: var(--vf-bg);
+    color: var(--vf-text-muted);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  
+  .segmento-chip:hover {
+    background: var(--vf-border);
+    color: var(--vf-text-main);
+  }
+  
+  .segmento-chip.ativo {
+    background: var(--vf-primary); 
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .search-container {
+      margin: -32px 16px 0;
+      padding: 16px;
+    }
+  }

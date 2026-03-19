@@ -1,69 +1,46 @@
-﻿/* styles globais mínimos */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
+﻿:root {
+  /* Cores Principais */
+  --vf-primary: #0a7b6c;
+  --vf-primary-dark: #075a4f;
+  --vf-primary-light: #eaf7f4;
+  
+  /* Fundos e Bordas */
+  --vf-bg: #f4f6f8;
+  --vf-card-bg: #ffffff;
+  --vf-card: #ffffff; /* Fallback */
+  --vf-border: #e5e7eb;
+  
+  /* Textos */
+  --vf-text-main: #1a1d20;
+  --vf-text: #1a1d20; /* Fallback */
+  --vf-text-muted: #6b7280;
+  --vf-muted: #6b7280; /* Fallback */
+  
+  /* Cores de Alerta */
+  --vf-danger: #ef4444;
+  --vf-red: #ef4444;
+  --vf-red-light: #fef2f2;
+  --vf-warning: #f59e0b;
+  --vf-orange: #f59e0b;
+  
+  /* Sombras */
+  --vf-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset Global */
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  color: #0f172a;
-  background: #ffffff;
-}
-a { color: inherit; }
-
-.loading-screen {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  background: #f9fafb;
+  padding: 0;
 }
 
-.loading-logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  animation: blinkLogo 1.2s ease-in-out infinite;
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--vf-bg);
+  color: var(--vf-text-main);
+  -webkit-font-smoothing: antialiased;
 }
 
-.logo-badge {
-  background-color: #9cf0e2;
-  color: #075a4f;
-  font-weight: 800;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  font-size: 16px;
+button {
+  font-family: inherit;
 }
-
-.logo-text-wrap {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  text-align: left;
-}
-
-.logo-text {
-  font-weight: 800;
-  font-size: 18px;
-  color: #075a4f;
-}
-
-.text-orange {
-  color: #f59e0b;
-}
-
-.logo-subtext {
-  font-size: 12px;
-  color: #6b7280;
-  margin-top: 2px;
-}
-
-@keyframes blinkLogo {
-  0%, 100% { opacity: 1; transform: translateY(0); }
-  50% { opacity: 0.35; transform: translateY(-2px); }
-}
-
-

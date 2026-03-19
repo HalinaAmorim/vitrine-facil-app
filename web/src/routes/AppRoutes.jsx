@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext.jsx";
 
-import Home from "../pages/Auth/Home.jsx";
+
+import AuthLayout from "../pages/Auth/Layout/AuthLayout.jsx";
+import HomeWelcome from "../pages/Auth/Profile/HomeWelcome.jsx";
 import Register from "../pages/Auth/Register.jsx";
-import HomeWelcome from "../pages/Auth/HomeWelcome.jsx";
-import EditProfile from "../pages/Auth/EditProfile.jsx";
-import Products from "../pages/Products/Products.jsx";
+
+
+import Caixa from "../pages/Caixa/Caixa.jsx";
 import Dashboard from "../pages/Dashboard/Dashboard.jsx";
 import Estoque from "../pages/Estoque/Estoque.jsx";
-import Caixa from "../pages/Caixa/Caixa.jsx";
 import Pedidos from "../pages/Pedidos/Pedidos.jsx";
+import Products from "../pages/Products/Products.jsx";
+
+
+import Login from "../pages/Auth/Login.jsx";
 import Vitrine from "../pages/Vitrine/Vitrine.jsx";
 
 function LoadingWithLogo() {
@@ -64,7 +69,8 @@ function PublicRoute({ children }) {
   }
 
   if (isAuthenticated) {
-    return <Navigate to="/home" replace />;
+    // Se já estiver logado, manda para o dashboard em vez de ver o login novamente
+    return <Navigate to="/dashboard" replace />; 
   }
 
   return <PageLoader>{children}</PageLoader>;
@@ -73,14 +79,16 @@ function PublicRoute({ children }) {
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* ROTA PRINCIPAL (PÚBLICA) */}
+      {/* 🌍 ROTA PRINCIPAL (VITRINE PÚBLICA) */}
       <Route path="/" element={<PageLoader><Vitrine /></PageLoader>} />
 
-      {/* ROTAS DO LOJISTA (PÚBLICAS) */}
-      <Route path="/login" element={<PublicRoute><Home /></PublicRoute>} />
-      <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+      {/* 🔐 ROTAS DE AUTENTICAÇÃO (ENVOLVIDAS NO LAYOUT E NO PUBLIC ROUTE) */}
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+      </Route>
 
-      {/* ROTAS INTERNAS PROTEGIDAS */}
+      {/* 🛡️ ROTAS INTERNAS PROTEGIDAS (SÓ PARA QUEM FEZ LOGIN) */}
       <Route path="/home" element={<ProtectedRoute><HomeWelcome /></ProtectedRoute>} />
       <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
       <Route path="/profile" element={<ProtectedRoute><HomeWelcome editMode /></ProtectedRoute>} />
@@ -89,7 +97,7 @@ export default function AppRoutes() {
       <Route path="/caixa" element={<ProtectedRoute><Caixa /></ProtectedRoute>} />
       <Route path="/pedidos" element={<ProtectedRoute><Pedidos /></ProtectedRoute>} />
 
-      {/* Rota de segurança: Digitou besteira? Volta pra Vitrine principal */}
+      {/* 🚧 ROTA DE SEGURANÇA (Fallback) */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

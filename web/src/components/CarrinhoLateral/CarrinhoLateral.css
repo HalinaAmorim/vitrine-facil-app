@@ -1,0 +1,117 @@
+.checkout-section {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .panel-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--vf-text-main);
+    margin-bottom: 20px;
+  }
+  
+  .carrinho-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    color: #a1a1aa;
+    gap: 12px;
+    font-weight: 500;
+  }
+  
+  .carrinho-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .carrinho-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--vf-border);
+  }
+  
+  .item-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .item-info h4 {
+    font-size: 14px;
+    color: var(--vf-text-main);
+    margin: 0;
+  }
+  
+  .item-info span {
+    font-weight: 700;
+    color: var(--vf-primary);
+  }
+  
+  .item-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .item-controls button {
+    background: var(--vf-bg);
+    border: 1px solid var(--vf-border);
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--vf-text-main);
+    transition: all 0.2s;
+  }
+  
+  .item-controls button:hover {
+    background: var(--vf-border);
+  }
+  
+  .item-controls span {
+    font-weight: 600;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .btn-lixeira {
+    margin-left: auto;
+    color: var(--vf-red) !important;
+    background: var(--vf-red-light) !important;
+    border-color: transparent !important;
+  }
+  
+  .btn-lixeira:hover {
+    opacity: 0.8;
+  }
+  
+  .carrinho-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--vf-border);
+  }
+  
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--vf-text-main);
+  }

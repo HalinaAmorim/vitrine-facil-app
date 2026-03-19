@@ -2,39 +2,35 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext.jsx";
 
+
 import Input from "../../components/UI/Input/Input.jsx";
 import Button from "../../components/UI/Button/Button.jsx";
 import ErrorMessage from "../../components/UI/ErrorMessage/ErrorMessage.jsx";
 
-export default function Register() {
+export default function Login() {
   const navigate = useNavigate();
-  const { register } = useAuth(); 
+  const { login } = useAuth();
   
-  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function handleRegister(e) {
+  async function handleLogin(e) {
     e.preventDefault();
     setErro("");
 
     
-    if (!nome || !email || !senha) {
+    if (!email || !senha) {
       return setErro("Por favor, preencha todos os campos.");
-    }
-    if (senha.length < 6) {
-      return setErro("A senha deve ter pelo menos 6 caracteres.");
     }
 
     try {
       setLoading(true);
-      await register(nome, email, senha);
-      // Após o registo, vai para a tela de completar o perfil da loja
-      navigate("/home"); 
+      await login(email, senha);
+      navigate("/dashboard");
     } catch (err) {
-      setErro("Erro ao criar conta. Tenta um e-mail diferente.");
+      setErro("Credenciais inválidas ou erro no servidor.");
     } finally {
       setLoading(false);
     }
@@ -42,23 +38,15 @@ export default function Register() {
 
   return (
     <>
-      <h1 className="auth-title">Criar Conta</h1>
-      <p className="auth-subtitle">Junte-se a dezenas de lojistas no VitrineFácil.</p>
+      <h1 className="auth-title">Entrar</h1>
+      <p className="auth-subtitle">Que bom te ver novamente!</p>
 
-      <ErrorMessage  message={erro} />
+      {/* Componente de Erro Modularizado */}
+      <ErrorMessage message={erro} />
 
-      <form className="auth-form" onSubmit={handleRegister}>
+      <form className="auth-form" onSubmit={handleLogin}>
         
-        <Input 
-          label="Nome Completo"
-          id="nome"
-          type="text"
-          placeholder="João Silva"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          error={!!erro && !nome}
-        />
-
+        {/* Componentes de Input Limpos e Reutilizáveis */}
         <Input 
           label="E-mail"
           id="email"
@@ -66,25 +54,26 @@ export default function Register() {
           placeholder="exemplo@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          error={!!erro && !email}
+          error={!!erro && !email} 
         />
 
         <Input 
-          label="Palavra-passe"
+          label="Senha"
           id="senha"
           type="password"
-          placeholder="No mínimo 6 caracteres"
+          placeholder="Sua senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
-          error={!!erro && (!senha || senha.length < 6)}
+          error={!!erro && !senha}
         />
 
+        {/* Componente de Botão com estado de Loading */}
         <Button type="submit" isLoading={loading}>
-          Criar minha conta
+          Entrar
         </Button>
 
         <p className="auth-footer">
-          Já tem uma conta? <Link to="/login">Fazer Login</Link>
+          Não tem uma conta? <Link to="/register">Criar uma agora</Link>
         </p>
       </form>
     </>

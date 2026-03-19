@@ -1,0 +1,36 @@
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  
+  .stat-card {
+    background: var(--vf-card);
+    border: 1px solid var(--vf-border);
+    border-radius: 18px;
+    min-height: 118px;
+    box-shadow: var(--vf-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    padding: 12px;
+  }
+  
+  .stat-value { font-size: 22px; line-height: 1.1; font-weight: 800; color: #111827; }
+  .stat-label { font-size: 13px; color: #111827; opacity: 0.95; }
+  .value-money { color: #065f46; }
+  .value-warning { color: #b45309; }
+  .value-danger { color: #dc2626; }
+  
+  @media (max-width: 900px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  }
+  
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-card { min-height: 96px; }
+    .stat-value { font-size: 20px; }
+  }

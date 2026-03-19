@@ -1,0 +1,31 @@
+.pedido-card {
+    background: var(--vf-card-bg); border-radius: 16px; padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); border: 1px solid var(--vf-border);
+    display: flex; flex-direction: column; gap: 16px; transition: 0.2s ease;
+  }
+  .pedido-card:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06); }
+  .card-concluido { border-left: 4px solid var(--vf-primary); opacity: 0.92; }
+  .card-cancelado { border-left: 4px solid #ef4444; background: #fffafa; }
+  
+  .pedido-cabecalho { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px dashed var(--vf-border); padding-bottom: 12px; }
+  .pedido-data-cliente { display: flex; flex-direction: column; gap: 6px; }
+  .pedido-data { font-size: 13px; font-weight: 600; color: var(--vf-text-muted); }
+  .pedido-cliente { display: flex; align-items: center; gap: 6px; color: var(--vf-text-main); font-size: 16px; }
+  .pedido-total { font-size: 18px; font-weight: 800; color: var(--vf-primary); background: var(--vf-primary-light); padding: 6px 12px; border-radius: 12px; }
+  .card-cancelado .pedido-total { color: #dc2626; background: #fee2e2; }
+  
+  .pedido-resumo { display: flex; justify-content: space-between; align-items: center; }
+  .resumo-texto { font-size: 14px; color: var(--vf-text-muted); }
+  .btn-ver-detalhes { background: none; border: none; display: flex; align-items: center; gap: 4px; color: var(--vf-primary); font-weight: 700; font-size: 14px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: 0.2s ease; }
+  .btn-ver-detalhes:hover { background: var(--vf-bg); }
+  .card-cancelado .btn-ver-detalhes { color: #dc2626; }
+  .card-cancelado .btn-ver-detalhes:hover { background: #fee2e2; }
+  
+  .pedido-acoes { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+  .status-badge { display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; }
+  .status-verde { background: var(--vf-primary-light); color: var(--vf-primary); }
+  .status-vermelho { background: #fee2e2; color: #dc2626; }
+  
+  .btn-cancelar { background: #ef4444; color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer; box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2); transition: all 0.15s ease; }
+  .btn-cancelar:hover { background: #dc2626; transform: translateY(-1px); }
+  .btn-cancelar:active { transform: scale(0.95); background: #b91c1c; }
