@@ -30,7 +30,7 @@ export default function Login() {
       await login({email, senha});
       navigate("/dashboard");
     } catch (err) {
-      // setErro("Credenciais inválidas ou erro no servidor.")
+      setErro("Credenciais inválidas ou erro no servidor.")
       console.log(err);
     } finally {
       setLoading(false);
