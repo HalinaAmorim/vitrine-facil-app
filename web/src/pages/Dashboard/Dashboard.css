@@ -50,75 +50,6 @@
   gap: 8px;
 }
 
-/* Header */
-.top-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  background-color: var(--vf-card-bg);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-badge {
-  background-color: var(--vf-primary-light);
-  color: var(--vf-primary);
-  font-weight: 800;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.logo-text-wrap {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.logo-text {
-  font-weight: 800;
-  font-size: 16px;
-  color: var(--vf-primary);
-}
-
-.logo-subtext {
-  font-size: 11px;
-  color: var(--vf-text-muted);
-  margin-top: 2px;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.user-avatar {
-  background-color: var(--vf-primary);
-  color: white;
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
-}
-
 /* Conteúdo */
 .main-content {
   padding: 16px;
@@ -336,62 +267,6 @@
 .stock-badge.ready {
   background-color: #e9f7f4;
   color: var(--vf-primary-dark);
-}
-
-/* Navegação inferior */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--vf-card-bg);
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 8px;
-  padding-bottom: calc(10px + env(safe-area-inset-bottom));
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
-  z-index: 20;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  background: none;
-  border: none;
-  color: var(--vf-text-muted);
-  font-size: 11px;
-  font-weight: 600;
-  min-width: 68px;
-  cursor: pointer;
-}
-
-.nav-icon-wrap {
-  padding: 4px 16px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.nav-item:hover .nav-icon-wrap {
-  background-color: var(--vf-primary-light);
-  color: var(--vf-primary);
-}
-
-.nav-item.active .nav-icon-wrap {
-  background-color: var(--vf-primary);
-  color: white;
-}
-
-.nav-item.active span {
-  color: var(--vf-primary);
-  font-weight: 800;
-}
-.action-card.primary-action .action-title {
-  color: var(--vf-primary-light);
 }
 
 /* Responsivo */

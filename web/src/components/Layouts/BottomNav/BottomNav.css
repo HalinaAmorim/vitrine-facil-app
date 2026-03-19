@@ -1,0 +1,54 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--vf-card-bg);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 8px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+    z-index: 20;
+  }
+  
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: var(--vf-text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 68px;
+    cursor: pointer;
+  }
+  
+  .nav-icon-wrap {
+    padding: 4px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .nav-item:hover .nav-icon-wrap {
+    background-color: var(--vf-primary-light);
+    color: var(--vf-primary);
+  }
+  
+  .nav-item.active .nav-icon-wrap {
+    background-color: var(--vf-primary);
+    color: white;
+  }
+  
+  .nav-item.active span {
+    color: var(--vf-primary);
+    font-weight: 800;
+  }
+  .action-card.primary-action .action-title {
+    color: var(--vf-primary-light);
+  }

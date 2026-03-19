@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import {
+  DollarSign,
+  Package,
+  QrCode,
+  ShoppingCart,
+  TrendingUp
+} from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BottomNav from "../../components/Layouts/BottomNav/BottomNav.jsx";
+import TopHeader from "../../components/Layouts/TopHeader/TopHeader.jsx";
 import { useAuth } from "../../contexts/AuthContext.jsx";
 import { api } from "../../services/api.js";
-import {
-  ShoppingCart,
-  TrendingUp,
-  LayoutDashboard,
-  QrCode,
-  Package,
-  Store,
-  DollarSign,
-} from "lucide-react";
 import "./Dashboard.css";
 
 export default function Dashboard() {
@@ -82,81 +82,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-layout">
-      <header className="top-header">
-        <div className="logo-container">
-          <div className="logo-badge">VF</div>
-          <div className="logo-text-wrap">
-            <span className="logo-text">
-              Vitrine<span className="text-orange">Fácil</span>
-            </span>
-            <span className="logo-subtext">Dashboard do vendedor</span>
-          </div>
-        </div>
-        <div className="header-actions">
-          <div 
-            className="user-avatar"
-            onClick={() => setShowMenu(!showMenu)}
-            style={{ cursor: "pointer", position: "relative" }}
-          >
-            {userInitials}
-            {showMenu && (
-              <div
-                className="context-menu"
-                style={{
-                  position: "absolute",
-                  top: "100%",
-                  right: 0,
-                  backgroundColor: "white",
-                  border: "1px solid #e5e7eb",
-                  borderRadius: "6px",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  zIndex: 1000,
-                  minWidth: "150px",
-                }}
-              >
-                <button
-                  type="button"
-                  onClick={() => navigate("/profile")}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    border: "none",
-                    backgroundColor: "transparent",
-                    cursor: "pointer",
-                    fontSize: "14px",
-                    color: "#374151",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.backgroundColor = "#f3f4f6")}
-                  onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}
-                >
-                  Editar perfil
-                </button>
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    border: "none",
-                    backgroundColor: "transparent",
-                    cursor: "pointer",
-                    fontSize: "14px",
-                    color: "#374151",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.backgroundColor = "#f3f4f6")}
-                  onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}
-                >
-                  Sair
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
+      <TopHeader showActions={false} subtitle="Dashboard do vendedor" />
 
       <main className="main-content">
         <section className="dashboard-section">
@@ -327,48 +253,7 @@ export default function Dashboard() {
         </section>
       </main>
 
-      <nav className="bottom-nav">
-        <button
-          className="nav-item active"
-          type="button"
-          onClick={() => navigate("/dashboard")}
-        >
-          <div className="nav-icon-wrap">
-            <LayoutDashboard size={22} />
-          </div>
-          <span>Início</span>
-        </button>
-        <button
-          className="nav-item"
-          type="button"
-          onClick={() => navigate("/pedidos")}
-        >
-          <div className="nav-icon-wrap">
-            <QrCode size={22} />
-          </div>
-          <span>Pedidos</span>
-        </button>
-        <button
-          className="nav-item"
-          type="button"
-          onClick={() => navigate("/estoque")}
-        >
-          <div className="nav-icon-wrap">
-            <Package size={22} />
-          </div>
-          <span>Estoque</span>
-        </button>
-        <button
-          className="nav-item"
-          type="button"
-          onClick={() => navigate("/caixa")}
-        >
-          <div className="nav-icon-wrap">
-            <Store size={22} />
-          </div>
-          <span>Caixa</span>
-        </button>
-      </nav>
+      <BottomNav />
     </div>
   );
 }

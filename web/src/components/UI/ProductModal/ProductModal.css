@@ -1,0 +1,143 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.5);
+    backdrop-filter: blur(1px);
+    display: grid;
+    place-items: center;
+    z-index: 40;
+    padding: 16px;
+  }
+  
+  .product-modal {
+    width: min(100%, 560px);
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--vf-border);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+  }
+  
+  .icon-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 10px;
+    background: #fff;
+    color: #6b7280;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  
+  .icon-close:hover {
+    background: #f3f4f6;
+  }
+  
+  .modal-form {
+    padding: 8px 16px 16px;
+    display: grid;
+    gap: 12px;
+  }
+  
+  .modal-form label {
+    display: grid;
+    gap: 6px;
+  }
+  
+  .modal-form label > span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .modal-form label > span small {
+    color: #6b7280;
+    font-weight: 600;
+  }
+  
+  .modal-form input,
+  .modal-form select,
+  .modal-form textarea {
+    width: 100%;
+    border: 1px solid var(--vf-border);
+    border-radius: 12px;
+    background: #fff;
+    color: #111827;
+    outline: none;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  
+  .modal-form input:focus,
+  .modal-form select:focus,
+  .modal-form textarea:focus {
+    border-color: #b7d7cf;
+    box-shadow: 0 0 0 3px rgba(10, 123, 108, 0.08);
+  }
+  
+  .modal-form textarea {
+    resize: vertical;
+    min-height: 72px;
+  }
+  
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .stock-group-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #111827;
+    margin-top: 2px;
+  }
+  
+  .modal-actions {
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .btn-cancel,
+  .btn-submit {
+    height: 38px;
+    border-radius: 12px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .btn-cancel {
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #111827;
+  }
+  
+  .btn-cancel:hover {
+    background: #f9fafb;
+  }
+  
+  .btn-submit {
+    border: none;
+    background: #065f46;
+    color: #fff;
+  }
+  
+  .btn-submit:hover {
+    background: #054c39;
+  }
+  
+  .btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
