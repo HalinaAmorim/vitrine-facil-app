@@ -64,7 +64,7 @@ O projeto adota a arquitetura **Client–Server (Frontend e Backend)**, garantin
 * **Mobile (App do Lojista):** React Native com Expo (foco em Android / Play Store)
 * **Frontend Web (Vitrine do Cliente):** React.js com Vite (hospedado na Vercel)
 * **Backend (API):** Node.js com Express
-* **Banco de Dados:** PostgreSQL (Neon DB)
+* **Banco de Dados:** Firebase
 * **Comunicação:** Integração com WhatsApp para envio e notificação de pedidos
 
 ---
