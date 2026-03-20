@@ -6,6 +6,7 @@ import Input from "../../../components/UI/Input/Input.jsx";
 import Select from "../../../components/UI/Select/Select.jsx";
 import Button from "../../../components/UI/Button/Button.jsx";
 import ErrorMessage from "../../../components/UI/ErrorMessage/ErrorMessage.jsx";
+import ImageUploader from "../../../components/ImageUploader/ImageUploader.jsx";
 import BrandLogo from "../../../components/UI/BrandLogo/BrandLogo.jsx";
 
 const STORE_KEY = "vf_store_profile";

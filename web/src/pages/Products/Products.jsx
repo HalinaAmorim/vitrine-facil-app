@@ -9,6 +9,7 @@ import Button from "../../components/UI/Button/Button.jsx";
 import ErrorMessage from "../../components/UI/ErrorMessage/ErrorMessage.jsx";
 import ProductModal from "../../components/UI/ProductModal/ProductModal.jsx"; 
 import ProductMiniCard from "../../components/ProdutoMiniCard/ProdutoMiniCard.jsx";
+import ImageUploader from "../../components/ImageUploader/ImageUploader.jsx";
 
 import "./Products.css";
 

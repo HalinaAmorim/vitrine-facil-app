@@ -1,0 +1,33 @@
+.btn-edit-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: var(--vf-primary);
+    border: 1px solid rgba(10, 123, 108, 0.2);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 100%; 
+    transform: translateY(-50%) translateX(20px); 
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+  }
+  
+  .btn-edit-logo:hover {
+    background-color: var(--vf-primary);
+    color: white;
+    border-color: var(--vf-primary);
+    transform: translateY(-50%) translateX(20px) scale(1.03); 
+  }
+  
+  .btn-edit-logo svg {
+    flex-shrink: 0;
+  }

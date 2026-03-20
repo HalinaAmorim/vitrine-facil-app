@@ -8,7 +8,6 @@ import './TopHeader.css';
 export default function TopHeader({ showActions = true, subtitle = null }) {
   const { user } = useAuth();
   const navigate = useNavigate();
-
   const userInitials = user?.nome ? user.nome.substring(0, 2).toUpperCase() : "VF";
 
   const handleLogout = async () => {
@@ -18,6 +17,11 @@ export default function TopHeader({ showActions = true, subtitle = null }) {
     } catch (error) {
       console.error("Erro ao sair:", error);
     }
+  };
+
+  // Função que leva para a edição do perfil/loja
+  const handleEditLoja = () => {
+    navigate('/home');
   };
 
   return (
@@ -34,19 +38,36 @@ export default function TopHeader({ showActions = true, subtitle = null }) {
         {showActions ? (
           <>
             <button className="icon-btn" type="button"><Bell size={20} /></button>
-            <button className="icon-btn" type="button"><Settings size={20} /></button>
+            {/* Engrenagem agora edita a loja */}
             <button 
-              className="icon-btn text-red" 
+              className="icon-btn" 
               type="button" 
-              onClick={handleLogout}
-              title="Sair"
+              onClick={handleEditLoja}
+              title="Editar perfil da loja"
             >
-              <LogOut size={20} />
+              <Settings size={20} />
             </button>
           </>
         ) : (
-          <div className="user-avatar">{userInitials}</div>
+          /* Avatar agora edita a loja */
+          <div 
+            className="user-avatar clickable" 
+            onClick={handleEditLoja}
+            title="Editar perfil da loja"
+          >
+            {userInitials}
+          </div>
         )}
+
+        {/* Botão de Sair fixo, aparece em TODAS as telas */}
+        <button 
+          className="icon-btn text-red" 
+          type="button" 
+          onClick={handleLogout}
+          title="Sair da conta"
+        >
+          <LogOut size={20} />
+        </button>
       </div>
     </header>
   );
