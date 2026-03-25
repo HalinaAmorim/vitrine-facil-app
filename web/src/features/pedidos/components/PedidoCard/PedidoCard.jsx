@@ -50,11 +50,11 @@ export default function PedidoCard({ pedido, onCancelar }) {
           {status}
         </div>
 
-        {!isCancelado && !isConcluido && (
-          <button className="btn-cancelar" onClick={() => onCancelar(pedido)}>
-            Marcar como Cancelado
-          </button>
-        )}
+      {isConcluido && !isCancelado && (
+      <button className="btn-cancelar" onClick={() => onCancelar(pedido)}>
+        Marcar como Cancelado
+      </button>
+      )}
       </div>
     </div>
   );
